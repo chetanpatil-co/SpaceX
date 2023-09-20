@@ -1,0 +1,214 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "aa801cb75b7c25fdf8b9e7cfd21dee2b",
+    "entities": [
+      {
+        "tableName": "table_launch",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`srNo` INTEGER PRIMARY KEY AUTOINCREMENT, `flightNumber` INTEGER, `missionName` TEXT, `missionId` TEXT, `upcoming` INTEGER, `launchYear` TEXT, `launchDateUnix` INTEGER, `launchDateUtc` TEXT, `launchDateLocal` TEXT, `isTentative` INTEGER, `tentativeMaxPrecision` TEXT, `tbd` INTEGER, `launchWindow` INTEGER, `rocket` TEXT, `ships` TEXT, `telemetry` TEXT, `launchSite` TEXT, `launchSuccess` INTEGER NOT NULL, `launchFailureDetails` TEXT, `links` TEXT, `details` TEXT, `staticFireDateUtc` TEXT, `staticFireDateUnix` TEXT, `lastDateUpdate` TEXT, `lastLlLaunchDate` TEXT, `lastLlUpdate` TEXT, `lastWikiLaunchDate` TEXT, `lastWikiRevision` TEXT, `lastWikiUpdate` TEXT, `launchDateSource` TEXT, `favStatus` INTEGER)",
+        "fields": [
+          {
+            "fieldPath": "srNo",
+            "columnName": "srNo",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "flightNumber",
+            "columnName": "flightNumber",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "missionName",
+            "columnName": "missionName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "missionId",
+            "columnName": "missionId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "upcoming",
+            "columnName": "upcoming",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "launchYear",
+            "columnName": "launchYear",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "launchDateUnix",
+            "columnName": "launchDateUnix",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "launchDateUtc",
+            "columnName": "launchDateUtc",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "launchDateLocal",
+            "columnName": "launchDateLocal",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isTentative",
+            "columnName": "isTentative",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "tentativeMaxPrecision",
+            "columnName": "tentativeMaxPrecision",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "tbd",
+            "columnName": "tbd",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "launchWindow",
+            "columnName": "launchWindow",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "rocket",
+            "columnName": "rocket",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "ships",
+            "columnName": "ships",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "telemetry",
+            "columnName": "telemetry",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "launchSite",
+            "columnName": "launchSite",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "launchSuccess",
+            "columnName": "launchSuccess",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "launchFailureDetails",
+            "columnName": "launchFailureDetails",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "links",
+            "columnName": "links",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "details",
+            "columnName": "details",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "staticFireDateUtc",
+            "columnName": "staticFireDateUtc",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "staticFireDateUnix",
+            "columnName": "staticFireDateUnix",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "lastDateUpdate",
+            "columnName": "lastDateUpdate",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "lastLlLaunchDate",
+            "columnName": "lastLlLaunchDate",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "lastLlUpdate",
+            "columnName": "lastLlUpdate",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "lastWikiLaunchDate",
+            "columnName": "lastWikiLaunchDate",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "lastWikiRevision",
+            "columnName": "lastWikiRevision",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "lastWikiUpdate",
+            "columnName": "lastWikiUpdate",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "launchDateSource",
+            "columnName": "launchDateSource",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "favStatus",
+            "columnName": "favStatus",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "srNo"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'aa801cb75b7c25fdf8b9e7cfd21dee2b')"
+    ]
+  }
+}
