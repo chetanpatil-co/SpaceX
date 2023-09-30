@@ -1,6 +1,7 @@
 package com.chetan.spacex.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,6 +20,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.chetan.spacex.R;
 import com.chetan.spacex.model.Launch;
+import com.chetan.spacex.view.LaunchDetailsActivity;
 import com.chetan.spacex.view.MainActivity;
 import com.chetan.spacex.viewmodel.LaunchesViewModel;
 
@@ -26,12 +29,12 @@ import java.util.List;
 public class SpaceXAdapter extends RecyclerView.Adapter<SpaceXAdapter.MyViewHolder> {
 
     Context context;
-    List<Launch> launchList;
+    public List<Launch> launchList;
     LaunchesViewModel viewModel;
 
-    public SpaceXAdapter(Context mCtx, List<Launch> heroList) {
+    public SpaceXAdapter(Context mCtx, List<Launch> launchList) {
         this.context = mCtx;
-        this.launchList = heroList;
+        this.launchList = launchList;
         viewModel = ViewModelProviders.of((MainActivity) mCtx).get(LaunchesViewModel.class);
     }
 
@@ -73,7 +76,6 @@ public class SpaceXAdapter extends RecyclerView.Adapter<SpaceXAdapter.MyViewHold
             @Override
             public void onClick(View v) {
                 try {
-                    Toast.makeText(context, "Position: " + holder.getAdapterPosition() + "\nMission Name: " + launchObj.getMissionName(), Toast.LENGTH_SHORT).show();
                     int flight_number = launchObj.getFlightNumber();
                     int fav_status = launchObj.getFavStatus();
                     if (fav_status == 0) {
@@ -98,6 +100,16 @@ public class SpaceXAdapter extends RecyclerView.Adapter<SpaceXAdapter.MyViewHold
                 }
             }
         });
+
+        holder.parent_layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int flight_number = launchObj.getFlightNumber();
+                Intent intent = new Intent(context, LaunchDetailsActivity.class);
+                intent.putExtra("flight_number", "" + flight_number);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -106,19 +118,21 @@ public class SpaceXAdapter extends RecyclerView.Adapter<SpaceXAdapter.MyViewHold
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
-
+        ConstraintLayout parent_layout;
         ImageView iv_mission_patch, iv_favorite;
         TextView txtMissionName, txtLaunchDate, txtRocketName, txtLaunchStatus;
 
         public MyViewHolder(View itemView) {
             super(itemView);
 
+            parent_layout = itemView.findViewById(R.id.parent_layout);
             iv_mission_patch = itemView.findViewById(R.id.iv_mission_patch);
             iv_favorite = itemView.findViewById(R.id.iv_favorite);
             txtMissionName = itemView.findViewById(R.id.txtMissionName);
             txtLaunchDate = itemView.findViewById(R.id.txtLaunchDate);
             txtRocketName = itemView.findViewById(R.id.txtRocketName);
             txtLaunchStatus = itemView.findViewById(R.id.txtLaunchStatus);
+
         }
     }
 }

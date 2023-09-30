@@ -16,7 +16,7 @@
         android:theme="@style/Theme.SpaceX"
         tools:targetApi="31">
         <activity
-            android:name=".LaunchDetailsActivity"
+            android:name=".view.LaunchDetailsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
